@@ -20,7 +20,7 @@ Submit your link using this [Google Form](https://forms.gle/gsj6fndQMVBqEVRF6)
 
 ### Assessment
 
-Success criteria will be based upon meeting the clients requirements outlined in the **pseudo code**, with each one simply `met` or `not met`.
+Assessment criteria will be based upon meeting the clients requirements outlined in the **pseudo code**, with each one simply `met` or `not met`.
 
 There are a total of **14** marks available for the main requirements. **4** additional marks for stretch goals, and **2** final marks for following coding best practices, for a total of **20**.
 
