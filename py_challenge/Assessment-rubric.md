@@ -4,9 +4,9 @@ For assessment of the individual mini-project the assessor should award one poin
 
 ---
 
+- [ ] App uploaded to a GitHub repository
 - [ ] Functionality contained in a loop for continuous operation
-- [ ] Contains a list or dictionary for active users
-- [ ] Contains a list or dictionary for disabled users
+- [ ] Contains a list or dictionary for active and disabled users
 - [ ] Main menu implemented:
   - [ ] `Add user`/`view users (active/disabled)`/`enable/disable users`/`exit` options included
   - [ ] Clear and well formatted menu
@@ -21,16 +21,18 @@ For assessment of the individual mini-project the assessor should award one poin
 
 ### Stretch Goals
 
-An additional 5 marks are available for meeting the following stretch goals.
+An additional 4 marks are available for meeting the following stretch goals.
 
 - [ ] Users are stored in dictionaries, with `name` and `password` keys
 - [ ] Add User prompts for `name` and `password` and adds to new dictionary
 - [ ] Test login function: capture input for name and password, then compares against dictionaries.
-- [ ] Users are persisted to a CSV file
+- [ ] Users are persisted to a CSV or text file
 
 ### Best practice
 
-- [ ] Functionality is implemented following OOP principles (i.e. Python classes)
+An additional 2 marks are available for following best practice.
+
+- [ ] Functions are separated from main code and imported
 - [ ] Submitted evidence of planning
 
 ---
