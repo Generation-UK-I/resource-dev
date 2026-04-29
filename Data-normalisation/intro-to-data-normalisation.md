@@ -336,4 +336,4 @@ Normalise the following dataset by working though 1NF -> 3NF:
 |5004|Taylor|"Latte, Brownie, Water"|12.00|Sam|Senior|Espresso Bar|
 |5005|Casey|Cappuccino|4.50|Riley|Intermediate|Espresso Bar|
 
-If you're finding it challenging, click here for some tips.
+If you're finding it challenging, [click here](./normalisation-challenge-tips.md) for some tips.
