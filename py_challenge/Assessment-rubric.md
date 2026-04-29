@@ -4,13 +4,19 @@ For assessment of the individual mini-project the assessor should award one poin
 
 ---
 
+## Client Requirements
+
 - [ ] App uploaded to a GitHub repository
 - [ ] Functionality contained in a loop for continuous operation
 - [ ] Contains a list or dictionary for active and disabled users
 - [ ] Main menu implemented:
-  - [ ] `Add user`/`view users (active/disabled)`/`enable/disable users`/`exit` options included
+  - [ ] Options included:
+    - `Add user`
+    - `view active and disabled users)`
+    - `enable/disable users`
+    - `exit`
   - [ ] Clear and well formatted menu
-  - [ ] Accounts for invalid inputs
+  - [ ] Handles invalid inputs
 - [ ] Add user: Captures input and appends to list
   - [ ] Appropriately formatted user message
 - [ ] View users: View active and disabled user lists separately
