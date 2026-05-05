@@ -141,82 +141,7 @@ Data that lacks uniformity may result in:
 - Calculations may break
 - Data analysis becomes unreliable
 
-
-# 5. Uniformity
-
-## What is Uniformity?
-
-Uniformity means:
-
-> Data uses the same format, units, and structure.
-
-Examples of non-uniform data:
-
-| Example |
-| ------- |
-| £100    |
-| 100 GBP |
-| 100     |
-
-or:
-
-| Example      |
-| ------------ |
-| 01/05/2026   |
-| 2026-05-01   |
-| May 1st 2026 |
-
----
-
-# Why Uniformity Matters
-
-Without uniform formatting:
-
-* Sorting may fail
-* Calculations may break
-* Data analysis becomes unreliable
-
----
-
-# Example — Date Formatting
-
-```python
-orders = pd.DataFrame({
-    'date': ['01/05/2026', '2026-05-02', 'May 3 2026']
-})
-
-orders
-```
-
----
-
-# Converting to Uniform Dates
-
-```python
-orders['date'] = pd.to_datetime(orders['date'])
-
-orders
-```
-
----
-
-# Example — Uniform Text Case
-
-```python
-sales_data['country'] = sales_data['country'].str.upper()
-```
-
----
-
-# Example — Uniform Whitespace
-
-```python
-sales_data['country'] = sales_data['country'].str.strip()
-```
-
----
-
-# Summary Table
+### Summary Table
 
 | Concept      | Meaning                               | Example Problem       |
 | ------------ | ------------------------------------- | --------------------- |
@@ -226,123 +151,22 @@ sales_data['country'] = sales_data['country'].str.strip()
 | Completeness | Missing data exists                   | Empty email           |
 | Uniformity   | Same formatting/style                 | Multiple date formats |
 
----
-
-# Suggested Classroom Activities
-
-# Activity 1 — Spot the Problems
-
-Give learners a messy dataset and ask them to identify:
-
-* Invalid values
-* Missing values
-* Inconsistent formatting
-* Suspicious data
-
----
-
-# Activity 2 — Clean the Dataset
-
-Learners should:
-
-1. Standardise country names
-2. Remove invalid ages
-3. Fill missing purchase amounts
-4. Convert dates to uniform format
-
----
-
-# Activity 3 — Create Validation Rules
-
-Ask learners to define rules such as:
-
-* Age must be between 0 and 120
-* Emails must contain '@'
-* Purchase amounts must be positive
-
----
-
-# Extension Activities
-
-## Duplicate Detection
-
-```python
-sales_data.duplicated()
-```
-
----
-
-## Remove Duplicates
-
-```python
-sales_data.drop_duplicates()
-```
-
----
-
-## Data Type Inspection
-
-```python
-sales_data.dtypes
-```
-
----
-
-## Convert Data Types
-
-```python
-sales_data['age'] = sales_data['age'].astype('float')
-```
-
----
-
-# Suggested Discussion Topics
-
-* Is automated cleaning always safe?
-* Can cleaning introduce bias?
-* Should original raw data always be preserved?
-* Why is data governance important?
-
----
-
-# Mini Project Suggestion
-
-Provide learners with a CSV file containing:
-
-* Missing values
-* Invalid ages
-* Inconsistent country names
-* Duplicate rows
-* Mixed date formats
-
-Task:
-
-> Clean the dataset and prepare it for analysis.
-
-Learners should document:
-
-* What problems they found
-* How they fixed them
-* Which assumptions they made
-
----
-
-# Final Takeaways
+## Final Takeaways
 
 Good quality data should be:
 
-* Valid
-* Accurate
-* Consistent
-* Complete
-* Uniform
+- Valid
+- Accurate
+- Consistent
+- Complete
+- Uniform
 
 Data cleansing is a critical step in:
 
-* Data analysis
-* Business intelligence
-* Machine learning
-* Software systems
-* Reporting and dashboards
+- Data analysis
+- Business intelligence
+- Machine learning
+- Software systems
+- Reporting and dashboards
 
 In real-world projects, cleaning data often takes far more time than analysing it.
