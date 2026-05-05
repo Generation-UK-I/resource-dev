@@ -1,6 +1,6 @@
 # Improving Data Quality Tutorial
 
-Throughout this lesson we will use a deliberately messy dataset, which we're going to work with using Pandas in your Jupyter Notebook environment. Review the "Data Science in Python" repository if you do not have this set up.
+Throughout this lesson we will use a deliberately messy dataset, which we're going to work with using Pandas in your Jupyter Notebook environment. Review the [Data Science in Python](https://github.com/Generation-UK-I/data-science-in-python/blob/main/deploying-jupyter.md) repository if you do not have this set up.
 
 ## Create the Dataset
 
@@ -37,7 +37,7 @@ sales_data = pd.DataFrame({
 sales_data
 ```
 
-If you execute the code Jupyter will display the dataframe without requiring a print statement.
+If you execute the code Jupyter will display the dataframe without requiring a `print` statement.
 
 >Our dataset is relatively small, but as it scales up, Pandas and similar libraries can continue to provide the required functionality with greater performance and efficiency than other tools.
 
@@ -45,11 +45,12 @@ If you execute the code Jupyter will display the dataframe without requiring a p
 
 Our dataset has the following validity issues:
 
-| Column | Problem            |
-| ------ | ------------------ |
-| age    | -3 is impossible   |
-| age    | 200 is unrealistic |
-| email  | Missing '.com'     |
+|Column|Problem|
+|---|---|
+|age|`-3` is impossible|
+|age|`200` is unrealistic|
+|email|Missing `.com`|
+|email|Missing `@`|
 
 - Below the dataframe add another markdown cell containing:
 
@@ -67,9 +68,10 @@ sales_data[sales_data['age'] < 0]
 
 - Executing the cell should reveal `BOB`
 
-- Add a new markdown cell containing `Check for unrealistic ages`, then repeat the last two steps, but searching for people older than a suitable integer.
+- Add a new markdown cell containing `Check for unrealistic ages`, then repeat the last two steps, but search for people older than a suitable integer.
 
-- We next need to search for users with invalid email addresses. To do so we'll use the `series.str.contains` method, which allows us to search the strings within a dataframe or series for substrings which we can define with regex.  
+- We next need to search for users with invalid email addresses. To do so we'll use the `series.str.contains` method, which allows us to search the strings within a dataframe or series for substrings which we can define with regex.
+
   To save going further than necessary down that rabbit hole, the code is provided below.
 
   Add the following markdown: `Checking for Invalid email addresses`, then the below code in the next cell.
@@ -79,7 +81,7 @@ sales_data[~sales_data['email'].str.contains('@')]
 sales_data[~sales_data['email'].str.contains(r'@.*\.', na=False)]
 ```
 
-- Since it's better for data to be missing rather than inaccurate, we should remove the invalid age entries. To do so we'll use Pandas `series.loc` method, which will return values for the given label or expression. Add the following markdown to a cell:
+- Since it's better for data to be missing rather than inaccurate, we should remove the invalid `age` entries. To do so we'll use Pandas `series.loc` method, which will return values for the given label or expression. Add the following markdown to a cell:
 
 ```text
 ### Fixing Invalid Data
@@ -113,7 +115,7 @@ sales_data # Verify
 
 ### Check Accuracy
 
-Computers can often identify invalid data automatically, but accuracy can be more difficult because:
+Computers can often identify invalid data automatically, but fixing accuracy can be more difficult because:
 
 - The value may look correct
 - External knowledge is often needed
@@ -141,20 +143,20 @@ We could gain more insight by using the `series.describe()` method against the c
 sales_data['purchase_amount'].describe()
 ```
 
-This provides a quick statistical summary of the purchase_amount column. We're not aiming to be data analysts, but there are a few things we can point out.
+This provides a quick statistical summary of the purchase_amount column. We're not aiming to be data analysts so we don't need to go into the maths, but there are a few things we can point out.
 
 1. Often standard deviation is used to identify outliers; Typically data more than three standard deviations from the mean is considered an outlier. In this case our dataset is too small, so standard deviation is dragged up too much.
 2. We can see that the suspected outlier is multiple times larger than the mean, which is unusual for such a small dataset.
 
     We might suspect the issue: for example maybe someone just double-pressed `5`; How you fix this accuracy issue (*or even whether you fix it - it may be down to the data analysts*) will depend upon the scenario and organisational processes.
 
-For our purposes we can assume it was a double-press, so fix it by adapting the code we used to update the email addresses.
+For our purposes we can assume it was a double-press, so fix it by adapting the code we used earlier to update the email addresses.
 
 >Add your own markdown to explain the next steps
 
 ### Check Consistency
 
-Our dataset has consistency issues with the country field; The series.value_counts() method can give us some insight:
+Our dataset has consistency issues with the country field; The `series.value_counts()` method can give us some insight:
 
 ```py
 sales_data['country'].value_counts()
@@ -220,7 +222,7 @@ sales_data['age'] = sales_data['age'].fillna('Unknown')
 sales_data
 ```
 
-Now we just need to deal with the missing name value; for our dataset we can infer it from the surrounding data - the email address appears to be simply `[name]@email.com` with no apparent truncation.
+Now we just need to deal with the missing `name` value; For our dataset we can infer it from the surrounding data - the email address appears to be simply `[name]@email.com` with no apparent truncation.
 
 - Update the relevant name record by adapting previously used code with the correct name.
 
@@ -236,7 +238,7 @@ Our final task to clean the dataset is to deal with the uniformity issue in the 
 
 ---
 
-You should now have a fully cleaned dataset.
+You should now have fixed all of the quality issues in the dataset.
 
 Continue onto the next exercise, using pandas with a much bigger dataset.
 
