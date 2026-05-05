@@ -8,7 +8,7 @@ Normalization is the process of organizing relational data to reduce duplication
 
 The most commonly used normal forms are:
 
-- **1NF**: No repeating groups; all values are atomic.
+- **1NF**: No repeating groups, i.e. all values are atomic.
 - **2NF**: No partial dependencies on part of a composite key.
 - **3NF**: No transitive dependencies; non‑key columns depend only on the primary key.
 
@@ -191,7 +191,7 @@ Our final database will have the following four tables:
 
 ERDs are used to visualise the layout and relationships between the different tables in a database. Below is a simple example illustrating our database.
 
-![erd](./imgs/erd.jpg)
+![erd](./img/erd.jpg)
 
 There are three types of entity relationship:
 
@@ -324,7 +324,7 @@ WHERE TeacherID = 'T_SMITH';
 
 Even though five different students might be looking for Mr. Smith across two different subjects, we only need to change one single record in the database.
 
-## Normalisation Challenge
+## Solo Normalisation Challenge
 
 Normalise the following dataset by working though 1NF -> 3NF:
 
@@ -337,3 +337,5 @@ Normalise the following dataset by working though 1NF -> 3NF:
 |5005|Casey|Cappuccino|4.50|Riley|Intermediate|Espresso Bar|
 
 If you're finding it challenging, [click here](./normalisation-challenge-tips.md) for some tips.
+
+
