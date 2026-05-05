@@ -1,4 +1,4 @@
-# Data Cleansing Tutorial
+# Improving Data Quality Tutorial
 
 Throughout this lesson we will use a deliberately messy dataset, which we're going to work with using Pandas in your Jupyter Notebook environment. Review the "Data Science in Python" repository if you do not have this set up.
 
@@ -19,17 +19,18 @@ import pandas as pd
 import numpy as np
 
 sales_data = pd.DataFrame({
-    'customer_id': [101, 102, 103, 104, 105],
-    'name': ['Alice', 'Bob', 'Charlie', 'David', None],
-    'age': [25, -3, 34, 200, 29],
-    'country': ['UK', 'uk', 'United Kingdom', 'USA', 'USA '],
-    'purchase_amount': [120.50, 85.00, np.nan, 40.00, 75.00],
+    'customer_id': [101, 102, 103, 104, 105, 106],
+    'name': ['Alice', 'BOB', 'Charlie', 'david', None, 'frankie'],
+    'age': [25, -3, 34, 200, 29, 6],
+    'country': ['UK', 'uk', 'United Kingdom', 'USA', 'USA ', 'UK'],
+    'purchase_amount': [120.50, 85.00, np.nan, 40.00, 75.00, 1055],
     'email': [
         'alice@email.com',
         'bob@email.com',
         'charlie@email',
         'david@email.com',
-        'eve@email.com'
+        'eve@email.com',
+        'frankieemail.com'
     ]
 })
 
@@ -64,7 +65,7 @@ Check for ages below zero
 sales_data[sales_data['age'] < 0]
 ```
 
-- Executing the cell should reveal `Bob`
+- Executing the cell should reveal `BOB`
 
 - Add a new markdown cell containing `Check for unrealistic ages`, then repeat the last two steps, but searching for people older than a suitable integer.
 
@@ -201,7 +202,7 @@ We can drop NaN records with `sales_data.dropna()`, but we'll lose half of our d
 
 Although occasional unusually large purchases may occur, the majority of valid values should trend towards the mean.
 
-- Execute the following code in the next cell to update the missing value in purchase_amount.
+- Execute the following code in the next cell to update the missing value in purchase_amount using the `series.fillna()` method.
 
 ```py
 sales_data['purchase_amount'] = sales_data['purchase_amount'].fillna(
@@ -211,7 +212,7 @@ sales_data['purchase_amount'] = sales_data['purchase_amount'].fillna(
 sales_data
 ```
 
-In our case we can assume that age is not an essential value for a record (*of course in the real-world this would likely not be the case*), so we can replace it with the placeholder string 'Unknown', which is more informative than `NaN` - which could mean missing, corrupted, deleted, etc.
+In our case we can assume that `age` is not an essential value for a record (*of course in the real-world this would likely not be the case*), so we can replace it with the placeholder string "Unknown", which is more informative than `NaN` - which could mean missing, corrupted, deleted, etc.
 
 ```py
 sales_data['age'] = sales_data['age'].fillna('Unknown')
@@ -230,6 +231,8 @@ Now we just need to deal with the missing name value; for our dataset we can inf
 Our final task to clean the dataset is to deal with the uniformity issue in the name field.
 
 - Re-use and adapt some earlier code to ensure that all values in the name field are returned in title case.
+
+>A common uniformity challenge is DATE values, because they may be recorded in different formats, and differ across countries, for example: DD/MM/YYYY, MM/DD/YYYY, YYYY-MM-DD, and so on. There are methods available, and processes to deal with such issues, but digging into them is a bit outside of our scope for now.
 
 ---
 

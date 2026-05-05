@@ -47,7 +47,7 @@ Before analysing data, building dashboards, or training machine learning models,
 - Duplicate person "Mary Ahmed"
 </details>
 
-### Why Data Cleansing Matters
+### Why Data Quality Matters
 
 Poor quality data can lead to:
 
@@ -151,7 +151,106 @@ Data that lacks uniformity may result in:
 | Completeness | Missing data exists                   | Empty email           |
 | Uniformity   | Same formatting/style                 | Multiple date formats |
 
+---
+
+## Mitigating Against Bad Data
+
+Cleansing is a crucial step in ensuring that we can extract value from our data, to inform:
+
+- Data analysis
+- Business intelligence
+- Machine learning
+- Software systems
+- Reporting and dashboards
+- Decision making
+
+However, cleansing is just one step in a process of mitigating against bad data, to ensure all of the above areas and more are operating effectively, and contributing to business' outcomes.
+
+1. Inspect
+2. Cleanse
+3. Verify
+4. Report
+
+### 1. Inspect
+
+#### How to inspect data
+
+- **Data profiling**: How many values are missing? How many unique values in a column, and their distribution?
+- **Visualisations**: By analysing and visualising the data using statistical methods such as mean, standard deviation, range, or quantiles, one can find values that are unexpected.
+- **Software packages**: Packages or libraries are available that let you specify constraints and check the data for violation of these constraints.
+
+>Some common python packages like `Great Expectations`, or `dbt` let you define tests that check your data during processing.
+
+### 2. Cleanse
+
+The most important part of data cleansing!
+
+The aim of cleansing data is to not only **cleanse** the data, but also bring **consistency** to the data.
+
+#### How do we cleanse data?
+
+There are some steps in cleansing data:
+
+- Parse
+- Correct
+- Standardise
+- Match
+- Consolidate
+
+#### Parse
+
+Parsing data means we are breaking up the source data into smaller bits following some rules. This allows us to 'do things' with the data easily.
+
+- E.g. splitting addresses so we can use only the postcode.
+
+#### Correct
+
+Now the data is in smaller chunks, we can now correct bits of it.
+
+- E.g. fixing typos like "Hel.o" to "Hello".
+
+#### Standardise
+
+Now it's cleansed, we want to make sure the data is consistent and all looks the same.
+
+- E.g. changing a date format from 04/29/2020 to 29/04/2020.
+
+#### Match
+
+Now we have cleansed and standardised data, we want to match it to our data definitions, and also rule out any duplicates.
+
+- E.g. are there similar names and addresses, like Mr Andrew Smith and Mr A. Smith at the same address.
+
+#### Consolidate
+
+Now we find relationships between all of our data and merging them into one.
+
+- E.g. The process of combining Mr Smith's data above into one correct record.
+
+>In real-world projects, cleaning data often takes far more time than analysing it.
+
+### 3. Verify
+
+Now we've cleansed the data, we need to verify (inspect) it again to make sure we haven't made it worse!
+
+- E.g. all dates are the correct format, duplicates have been removed, typos corrected etc.
+
+### 4. Report
+
+After we've verified the data, we want to take a look to understand what changes we made, and maybe consider why they occurred in the first place, and identify how we can avoid these issues happening again.
+
+---
+
 ## Final Takeaways
+
+Data cleansing is a process of:
+
+- Inspecting
+- Cleaning
+- Verifying
+- Reporting
+
+...on your data.
 
 Good quality data should be:
 
@@ -161,12 +260,6 @@ Good quality data should be:
 - Complete
 - Uniform
 
-Data cleansing is a critical step in:
+---
 
-- Data analysis
-- Business intelligence
-- Machine learning
-- Software systems
-- Reporting and dashboards
-
-In real-world projects, cleaning data often takes far more time than analysing it.
+Implement data improvement steps using Pandas in your Jupyter environment by following [this tutorial](./data-cleansing-tutorial.md).
