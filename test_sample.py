@@ -1,42 +1,15 @@
-# def add_two_numbers(a, b):
-#     return a + b
 
-# def test_adds_two_numbers():
-#     # Arrange
-#     a = 7
-#     b = 12
-#     expected = 19
+# import requests
 
-#     # Act
-#     result = add_two_numbers(a, b)
+# # 1. The Endpoint
+# url = "https://jsonplaceholder.typicode.com/posts/1"
 
-#     # Assert
-#     assert result == expected
+# # 2. Making the GET request
+# response = requests.get(url)
 
-# print(test_adds_two_numbers())
-
-
-# def add_two_numbers(a, b):
-#     return a + b
-
-# # No class needed (but can use)
-# def test_answer():
-#     assert add_two_numbers(3, 5) == 9
-
-# content of test_sample.py
-
-import pytest
-
-def add_two_numbers(a, b):
-    return a + b
-
-# No class needed (but can use)
-def test_answer():
-    assert add_two_numbers(3, 5) == 5
-
-
-# print(add_two_numbers(1, 1)) # Expected 2
-# print(add_two_numbers(-1, 0)) # Expected -1
-# print(add_two_numbers(1.00234, 0.3456)) # Expected 1.34794
-# print(add_two_numbers("string 1", "string 2")) # Expected Error
-# print(add_two_numbers("test", 1)) # Expected Error
+# # 3. Checking the Status Code
+# if response.status_code == 200:
+#     data = response.json()
+#     print(f"Success! Title: {data['title']}")
+# else:
+#     print(f"Failed with status: {response.status_code}")
